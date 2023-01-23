@@ -1,0 +1,66 @@
+
+// CLASE CÍRCULO
+
+public class Circulo {
+	
+	public double radio;
+	public double area;
+	public double circunferencia;
+	
+	public Circulo(double radio) {
+		this.radio = radio;
+		this.calculaArea();
+		this.calculaCircunferencia();		
+	}
+	
+	public Circulo() {
+		this(173428);
+	}
+	
+	public void calculaArea() {
+		this.area = Math.PI*this.radio*this.radio;
+	}
+	
+	public void calculaCircunferencia() {
+		this.circunferencia = 2*Math.PI*this.radio;
+	}
+}
+
+
+
+// CLASE CUADRADO
+
+public class Cuadrado {
+	
+	public double longitud;
+	public double diagonal;
+	public double area;
+	public double perimetro;
+	
+	public Cuadrado(double longitud) {
+		this.longitud = longitud;
+		this.calculaArea();
+		this.calculaDiagonal();
+		this.calculaPerimetro();
+	}	
+	
+	public Cuadrado() {
+		this(173428);
+	}
+	
+	public void modificaLongitud(int nuevaLongitud) {
+		this.longitud = nuevaLongitud;
+	}
+	
+	public void calculaArea() {
+		this.area = this.longitud * this.longitud;
+	}
+	
+	public void calculaPerimetro() {
+		this.perimetro = 4*this.longitud;
+	}
+	
+	public void calculaDiagonal() {
+		this.diagonal = this.longitud*Math.sqrt(2);
+	}
+}
