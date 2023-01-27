@@ -1,0 +1,85 @@
+package menuScanner;
+
+import java.util.Scanner;
+
+public class Actividad {
+	
+	public static void main(String[] args) {
+		
+		int ans = 0;
+		
+		do {
+			System.out.println("Menú principal:\nIngrese el número de la opción que desea ejecutar\n\n"
+					+ "1. Si desea crear un cuadrado\n"
+					+ "2. Si desea crear un círculo\n"
+					+ "3. Si desea cerrar el programa\n\n"
+					+ "Opción: ");
+			
+			int mode = readInt();
+			
+			if (mode == 1) {
+				System.out.println("\nSe creará un cuadrado con la longitud de lado que usted ingrese\n"
+						+ "Longitud de lado: ");
+				
+				double lado = readDou();
+				Cuadrado cuadrado = new Cuadrado(lado);
+				
+				do {
+					System.out.println("\nIngrese el número de la opción que desea ejecutar\n\n"
+							+ "1. Calcular perímetro\n"
+							+ "2. Calcular área\n"
+							+ "3. Calcular diagonal\n"
+							+ "4. Salir\n\n"
+							+ "Opción: ");
+					
+					ans = readInt();
+					
+					if (ans == 1) {
+						cuadrado.calculaPerimetro();
+						System.out.println("El perímetro del cuadrado es " + cuadrado.perimetro);
+					} else if (ans == 2) {
+						cuadrado.calculaArea();
+						System.out.println("El área del cuadrado es " + cuadrado.area);
+					} else if (ans == 3) {
+						cuadrado.calculaDiagonal();
+						System.out.println("La diagonal del cuadrado es " + cuadrado.diagonal);
+					}
+					
+				} while (ans != 4);
+				
+			} else if (mode == 2) {
+				System.out.println("\nSe creará un cículo con elradio que usted ingrese\n"
+						+ "Radio: ");
+				
+				double radio = readDou();
+				Circulo circulo = new Circulo(radio);
+				
+				do {
+					System.out.println("\nIngrese el número de la opción que desea ejecutar\n\n"
+							+ "1. Calcular circunferencia\n"
+							+ "2. Calcular área\n"
+							+ "3. Salir\n\n"
+							+ "Opción: ");
+					
+					ans = readInt();
+					
+					if (ans == 1) {
+						circulo.calculaCircunferencia();
+						System.out.println("La circunferencia del círuclo es " + circulo.circunferencia);
+					} else if (ans == 2) {
+						circulo.calculaArea();
+						System.out.println("El área del cuadrado es " + circulo.area);
+					}	
+				} while (ans != 3);
+			}
+		} while (ans != 3);
+	}
+	
+	public static int readInt() {
+		Scanner scan = new Scanner(System.in);
+		int input;
+		input = Integer.parseInt(scan.nextLine());
+			
+		return input;
+	}
+}
