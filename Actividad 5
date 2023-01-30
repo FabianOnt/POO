@@ -1,0 +1,121 @@
+import java.util.Scanner;
+
+public class Actividad5 {
+	
+	public static void main(String[] args) {
+		
+		int ans = 0;
+		int mode;
+		
+		do {
+			System.out.println("Menú principal:\nIngrese el número de la opción que desea ejecutar\n\n"
+					+ "1. Si desea crear un cuadrado\n"
+					+ "2. Si desea crear un círculo\n"
+					+ "3. Si desea cerrar el programa\n\n"
+					+ "Opción: ");
+			
+			mode = readInt();
+			
+			switch(mode) {
+			
+			case 1: // Cuadrado
+				System.out.println("\nSe creará un cuadrado con la longitud de lado que usted ingrese\n"
+						+ "Longitud de lado: ");
+				
+				double lado = readDou();
+				Cuadrado cuadrado = new Cuadrado(lado);
+				
+				do {
+					System.out.println("\nIngrese el número de la opción que desea ejecutar\n\n"
+							+ "1. Calcular perímetro\n"
+							+ "2. Calcular área\n"
+							+ "3. Calcular diagonal\n"
+							+ "4. Salir\n\n"
+							+ "Opción: ");
+					
+					ans = readInt();
+					
+					switch (ans) {
+					case 1: // Calcular perímetro
+						cuadrado.calculaPerimetro();
+						System.out.println("El perímetro del cuadrado es " + cuadrado.perimetro);						
+						break;
+					case 2: // Calcular área
+						cuadrado.calculaArea();
+						System.out.println("El área del cuadrado es " + cuadrado.area);
+						break;
+					case 3: // Calcular diagonal
+						cuadrado.calculaDiagonal();
+						System.out.println("La diagonal del cuadrado es " + cuadrado.diagonal);
+						break;
+					case 4: // Salir
+						System.out.println("Volviendo a menú principal...\n");
+						break;
+					default: // Default
+						System.out.println("Opción Invalida. Ingrese una opción vaálida.\n");
+				}
+					} while (ans != 4);					
+				break;
+					
+			case 2: // Círculo
+				System.out.println("\nSe creará un cículo con elradio que usted ingrese\n"
+									+ "Radio: ");
+					
+				double radio = readDou();
+				Circulo circulo = new Circulo(radio);
+				
+				do {
+					System.out.println("\nIngrese el número de la opción que desea ejecutar\n\n"
+							+ "1. Calcular circunferencia\n"
+							+ "2. Calcular área\n"
+							+ "3. Salir\n\n"
+							+ "Opción: ");
+					
+					ans = readInt();
+					
+					switch (ans){
+					
+					case 1: // Calcular perímetro
+						circulo.calculaCircunferencia();
+						System.out.println("La circunferencia del círuclo es " + circulo.circunferencia);							
+						break;
+					case 2: // Calcular área
+						circulo.calculaArea();
+						System.out.println("El área del cuadrado es " + circulo.area);
+						break;
+					case 3: // Salir
+						System.out.println("Volviendo a menú principal...\n");
+						break;
+					default: // Default
+						System.out.println("Opción Invalida. Ingrese una opción vaálida.\n");
+					}	
+				} while (ans != 3);
+				break;
+					
+				case 3:
+					System.out.println("Cerrando programa...");
+					break;
+					
+				default:
+					System.out.println("Opción inválida. Ingrese una opción válida.");
+					break;
+			}	
+		} while (mode != 3);
+	}
+	
+	public static int readInt() {
+		Scanner scan = new Scanner(System.in);
+		int input;
+		input = Integer.parseInt(scan.nextLine());
+			
+		return input;
+	}
+	
+	public static double readDou() {
+		Scanner scan = new Scanner(System.in);
+		double input;
+		input = Double.parseDouble(scan.nextLine());
+			
+		return input;
+	}
+}
