@@ -3,64 +3,21 @@
 package Ex1;
 
 public class Examen {
-	
-	public Examen (){}
-	
-	public static String primeraMayuscula(String myString) {
-		String firstLetter = (myString.substring(0,1)).toUpperCase();
-		String nonFirstLetter = myString.substring(1,myString.length());
-		
-		return firstLetter.concat(nonFirstLetter);
-	}
-	
-	public static String invertirCadena(String myString) {
-		String invertedString = "";
-		int i;
-		for (i=1;i<myString.length()+1;i++) {
-			invertedString += myString.charAt(myString.length()-i);
-		}		
-		return invertedString;
-	}
-	
-	public static String vocalesMayuscula(String myString) {
-		String replacedVocals = myString;
-		String vocals[] = {"a","e","i","o","u"};
-		int i;
-		for (i=0; i<5; i++) {
-			replacedVocals = replacedVocals.replace(vocals[i],vocals[i].toUpperCase());
-		}		
-		return replacedVocals;
-	}
-	
-	public static void fizzBuzz() {
-		int i;
-		String output = "";
-		for (i=1; i<101; i++) {
-			if (i%3 == 0) {
-				output = output.concat("Fizz");
-			}
-			if (i%5 == 0) {
-				output = output.concat("Buzz");
-			}
-			if (output != "") {
-				System.out.println(output);	
-				output = "";
-			} else {
-				System.out.println(i);
-			}
-			
-		}
-	}
-	
-	public static boolean palindromo(String myString) {
-		int i;
-		for (i=0; i<Math.ceil(myString.length()/2); i++) {
-			if (myString.charAt(i) == myString.charAt(myString.length()-i-1)) {
-				continue;
-			}
-			return false;
-		}
-		return true;
+	public class Ex {
+
+		public static void main(String[] args) {
+
+			Examen answerMyExam = new Examen();
+
+			System.out.println("Ejemplo 1: " + answerMyExam.primeraMayuscula("anita lava la tina"));
+
+			System.out.println("Ejemplo 2: " + answerMyExam.invertirCadena("Hola, soy un String"));
+
+			System.out.println("Ejemplo 3: " + answerMyExam.vocalesMayuscula("Hasta luego cocodrilo"));
+
+			System.out.println("Ejemplo 4: "); answerMyExam.fizzBuzz();
+
+			System.out.println("Ejemplo 5: " + answerMyExam.palindromo("anitalavalatina"));
 	}
 }
 
