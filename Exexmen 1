@@ -1,21 +1,20 @@
 // ------------------------ Clase "Ex": main con ejemplos ------------------------ 
 
-public class Examen {
-	public class Ex {
+public class Ex {
 
-		public static void main(String[] args) {
+	public static void main(String[] args) {
 
-			Examen answerMyExam = new Examen();
+		Examen answerMyExam = new Examen();
 
-			System.out.println("Ejemplo 1: " + answerMyExam.primeraMayuscula("anita lava la tina"));
+		System.out.println("Ejemplo 1: " + answerMyExam.primeraMayuscula("anita lava la tina"));
 
-			System.out.println("Ejemplo 2: " + answerMyExam.invertirCadena("Hola, soy un String"));
+		System.out.println("Ejemplo 2: " + answerMyExam.invertirCadena("Hola, soy un String"));
 
-			System.out.println("Ejemplo 3: " + answerMyExam.vocalesMayuscula("Hasta luego cocodrilo"));
+		System.out.println("Ejemplo 3: " + answerMyExam.vocalesMayuscula("Hasta luego cocodrilo"));
 
-			System.out.println("Ejemplo 4: "); answerMyExam.fizzBuzz();
+		System.out.println("Ejemplo 4: "); answerMyExam.fizzBuzz();
 
-			System.out.println("Ejemplo 5: " + answerMyExam.palindromo("anitalavalatina"));
+		System.out.println("Ejemplo 5: " + answerMyExam.palindromo("anitalavalatina"));
 	}
 }
 
