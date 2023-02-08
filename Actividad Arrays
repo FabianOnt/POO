@@ -1,0 +1,141 @@
+// -------------------- Acitvidad 6 --------------------
+
+public class actividad {
+	public static void main(String[] args) {
+		
+		int[] intArray = new int[15]; // Declara un arreglo de 15 enteros.
+		String[] nombres = new String[100]; // Declara un arreglo que guarde 20 nombres.
+		Estudiante[] estudiantes = new Estudiante[100]; // Declara un arreglo de 100 objetos de la clase Estudiante.
+		intArray[9] = 5; // Asigna un valor de 5 a la décima posición en el arreglo declarado que guarda enteros.
+		nombres[0] = "Francisco"; // Inserta "Francisco" en la primer posición del arreglo declarado para guardar nombres.
+		
+		// Ejemplo: Eliminar todas las instancias con el valor 1 en el array prueba.
+		int[] prueba = {1,2,3,1,1,2,3,1};
+		popIntArray(prueba, 1);
+		printIntArray(prueba);
+		
+		System.out.println("\n");
+		
+		String[] prueba2  = {"hola", "Hello", "papas", "hola", "avena", "guitarra", "hola"};
+		popStrArray(prueba2, "hola");
+		printStrArray(prueba2);
+	}	
+	
+	// Escribe un método para buscar un valor en el arreglo.
+	
+	public static void printIntArray(int[] myArray) {
+		int i;
+		for (i=0; i<myArray.length; i++) {
+			System.out.println(myArray[i]);
+		}
+	}
+	public static void printStrArray(String[] myArray) {
+		int i;
+		for (i=0; i<myArray.length; i++) {
+			System.out.println(myArray[i]);
+		}
+	}
+	public static void printEstArray(Estudiante[] myArray) {
+		int i;
+		for (i=0; i<myArray.length; i++) {
+			System.out.println(myArray[i]);
+		}
+	}
+	
+	// Escribe un método para buscar un valor en el arreglo.
+	
+	public static int searchIntArray(int[] myArray, int value) {
+		int i;
+		for (i=0; i<myArray.length; i++) {
+			if (myArray[i] == value) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public static int searchStrArray(String[] myArray, String value) {
+		int i;
+		for (i=0; i<myArray.length; i++) {
+			if (myArray[i] == value) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public static int searchEstArray(Estudiante[] myArray, Estudiante value) {
+		int i;
+		for (i=0; i<myArray.length; i++) {
+			if (myArray[i] == value) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	// Escribe un método para eliminar un valor en un arreglo.
+	
+	public static void popIntArray(int myArray[], int value) {
+		int loc = searchIntArray(myArray, value);
+		int iter = 0;
+		while (loc != -1) {
+			int i;
+			for (i=loc; i<myArray.length-2-iter; i++) {
+					myArray[i] = myArray[i+1];
+			}
+			if (myArray.length-iter >= 1) {
+				myArray[myArray.length-iter-1] = 0;				
+			}
+			loc = searchIntArray(myArray, value);
+			iter ++;
+		}
+	}
+	
+	public static void popStrArray(String myArray[], String value) {
+		int loc = searchStrArray(myArray, value);
+		int iter = 0;
+		while (loc != -1) {
+			int i;
+			for (i=loc; i<myArray.length-2-iter; i++) {
+					myArray[i] = myArray[i+1];
+			}
+			if (myArray.length-iter >= 1) {
+				myArray[myArray.length-iter-1] = null;				
+			}
+			loc = searchStrArray(myArray, value);
+			iter ++;
+		}
+	}
+	
+	public static void popEstArray(Estudiante myArray[], Estudiante value) {
+		int loc = searchEstArray(myArray, value);
+		int iter = 0;
+		while (loc != -1) {
+			int i;
+			for (i=loc; i<myArray.length-2-iter; i++) {
+					myArray[i] = myArray[i+1];
+			}
+			if (myArray.length-iter >= 1) {
+				myArray[myArray.length-iter-1] = null;				
+			}
+			loc = searchEstArray(myArray, value);
+			iter ++;
+		}
+	}
+	
+}
+
+// -------------------- Clase Estudiante --------------------
+
+public class Estudiante {
+	String nombre, apellido;
+	int grado, tutor;
+	
+	void Estudiente(){
+		this.nombre = "Nombre";
+		this.apellido = "Apellido";
+		this.grado = 0;
+		this.tutor = 0;
+	}
+}
