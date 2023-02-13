@@ -1,0 +1,60 @@
+// -------------------------------- Main and other functions ------------------------------------
+
+public class Ejercicio {
+	public static void main(String[] ars) {
+		
+		int i;
+		int max = 3;
+		MyStack stack1 = new MyStack(max);
+		
+		System.out.println("Llenado del stack");
+		for (i=0; i<max+1; i++) {
+			System.out.println(i);
+			fillStack(stack1, Character.forDigit(i,10));
+		}
+		
+		System.out.println("\nVaciado del stack");
+		for (i=0; i<stack1.MAX+1; i++) {
+			System.out.println( i + ": " + pop(stack1));
+		}
+	}
+
+	public static char pop(MyStack stack) {
+		if (stack.top == 0) {
+			System.out.println("Stack is empty");
+			return ' ';
+		} else {
+			stack.top = stack.top - 1;
+			return stack.stack[stack.top];
+		}
+	}
+	
+	public static void fillStack(MyStack stack, char value) {
+		if (stack.top == stack.MAX) {
+			System.out.println("Stack is full");			
+		} else {
+			stack.add(value);
+		}
+	}
+}
+
+
+
+// ------------------------------ MyStack Class --------------------------------
+
+public class MyStack {
+
+	int MAX;
+	char stack[];
+	int top = 0;
+	
+	MyStack(int MAX){
+		this.MAX = MAX;
+		this.stack = new char[MAX];
+	}
+	
+	void add(char value) {
+		stack[top] = value;
+		top = top + 1;
+	}	
+}
