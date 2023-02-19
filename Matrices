@@ -1,0 +1,127 @@
+// -------------------------------------- Clase para Matrices -------------------------------------
+
+public class Matriz {
+	
+	int rows,cols;
+	double[][] data;
+	
+	Matriz(int rows, int cols){
+		this.rows = rows;
+		this.cols = cols;
+		this.data = new double[rows][cols];
+	}
+}
+
+// ------------------------------ Clase para operaciones de matrices ------------------------------
+
+public class OperacionesMatrices {
+		
+	/* 1. Escribe un método que multiplique dos matrices y muestre el resultado. Las matrices pueden ser 
+	 * de cualquier tamaño, pero deben ser compatibles para multiplicarse.*/
+	
+	public static void matMulShow(Matriz A, Matriz B) {
+		if (A.cols == B.rows) {
+			int i, j, k;
+			double value;
+			System.out.println("[");
+			for (i=0; i<A.rows; i++) {
+				System.out.println("[");
+				for (j=0; j<B.cols; j++) {
+					value = 0;
+					for (k=0; k<B.rows; k++) {
+						value += A.data[i][k]*B.data[k][j];
+					}
+					System.out.println(value + " ");
+				}
+				System.out.println("]\n");
+			}
+			System.out.println("]");
+		} else {
+			System.out.println("Undefined product for matrices of size ("+A.rows+","+A.cols+") and ("+B.rows+","+B.cols+")");
+		}
+	}
+	
+	/* 2. Transponer una matriz, escriba un método que tome una matriz como entrada y devuelva la 
+	 * transpuesta de dicha matriz.*/
+	
+	public static Matriz transpose(Matriz M) {
+		
+		int i,j;
+		double value; 
+		Matriz MT = new Matriz(M.rows,M.cols);
+		
+		for (i=0; i<M.rows; i++) {
+			for (j=0; j<M.cols; j++) {
+				MT.data[i][j] = M.data[j][i];
+				MT.data[j][i] = M.data[i][j];
+			}
+		}
+		return MT;
+		
+	}
+	/* 3. Suma diagonal: escribe un método que tome una matriz cuadrada como entrada y devuelva 
+	 * la suma de los elementos de la diagonal principal.*/
+	
+	public static double diagSum(Matriz M) {
+		if (M.rows == M.cols) {
+			int k;
+			double value=0;
+			for (k=0; k<M.rows; k++) {
+				value += M.data[k][k];
+				}
+			return value;
+			} else {
+			System.out.println("Non-square matrix");
+			return 0;
+		}
+	}
+	
+	/*4. Encuentra el máximo: escribe un método que reciba una matriz de entrada y que devuelva el 
+	 * valor mas grande de la matriz.*/
+	
+	public static double matMax(Matriz M) {
+		int i,j;
+		double max=M.data[0][0];
+		for(i=0; i<M.rows; i++) {
+			for(j=0; j<M.cols; j++) {
+				if (M.data[i][j] > max) {
+					max = M.data[i][j];
+				}
+			}
+		}
+		return max;
+	}
+	
+	/*5. Suma dos matrices: escribe un método que reciba dos matrices de entrada y devuelva la matriz sumada.*/
+	
+	public static Matriz matSum(Matriz A, Matriz B) {
+		if (A.rows == B.rows && A.cols == B.cols) {
+			int i,j;
+			Matriz C = new Matriz(A.rows, A.cols);
+			for (i=0; i<A.rows; i++) {
+				for (j=0; j<A.cols; j++) {
+					C.data[i][j] = A.data[i][j] + B.data[i][j];
+				}
+			}
+			return C;
+		} else {
+			System.out.println("Undefined sum of matrices of size ("+A.rows+","+A.cols+") and ("+B.rows+","+B.cols+")");
+			return A;
+		}
+	}
+	
+	/*6. Multiplicar una matriz por un escalar: Escribe un método que reciba cualquier matriz y un escalar como 
+	 * entradas y devuelve el producto de la matriz por el escalar.*/
+	
+	public static Matriz scalarProd(Matriz M, double scalar) {
+		int i,j;
+		Matriz C = new Matriz(M.rows, M.cols);
+		for (i=0; i<M.rows; i++) {
+			for (j=0; j<M.cols; j++) {
+				C.data[i][j] = scalar * M.data[i][j];
+			}
+		}
+		return C;
+	}
+	
+}
