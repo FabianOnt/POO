@@ -41,8 +41,6 @@ public class User{
 
 // --------------------------- Personaje class ---------------------------------
 
-package Game;
-
 public class Personaje {
 	
 	private String name;
