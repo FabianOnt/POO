@@ -3,9 +3,9 @@ import java.io.IOException;
 public class Main {
 	
 	public static void main(String[] args) throws IOException {
-		
 		Lector miLectorExamen = new Lector();
 		miLectorExamen.ejecutar(173428);
+		
 	}
 }
 
@@ -18,17 +18,19 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Lector {
+	
 	public void ejecutar(int id) throws IOException {
 	
-	File file = new File("emails.csv");
-	File file2 = new File("173428.txt");
-	
-	int idStart = getLast3(173428);
-	int[][] data = loadData(file,idStart);
-	int[] sum = sumCols(data);
-	
-	String[] headers = loadHeaders(file);
-	saveCols(sum,headers,file2);
+		File file = new File("emails.csv");
+		File file2 = new File("173428.txt");
+
+		int idStart = getLast3(173428);
+		int[][] data = loadData(file,idStart);
+		int[] sum = sumCols(data);
+		String[] headers = loadHeaders(file);
+
+		saveCols(sum,headers,file2);
+
 	}
 	
 	private static int[] sumCols(int[][] data) {
@@ -50,8 +52,8 @@ public class Lector {
 	}
 	
 	private static String read(File file)  throws IOException { 
-        Path fileName = Path.of(file.getPath());
-        String str = Files.readString(fileName);
+		Path fileName = Path.of(file.getPath());
+		String str = Files.readString(fileName);
         return str;
     }	
 
