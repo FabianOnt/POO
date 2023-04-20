@@ -8,26 +8,26 @@ public class Cuadrado {
 	public double perimetro;
 	
 	public Cuadrado() {
-		this.longitud = 173428;
-		this.calculaArea();
-		this.calculaDiagonal();
-		this.calculaPerimetro();
+		longitud = 173428;
+		calculaArea();
+		calculaDiagonal();
+		calculaPerimetro();
 	}	
 	
 	public void modificaLongitud(int nuevaLongitud) {
-		this.longitud = nuevaLongitud;
+		longitud = nuevaLongitud;
 	}
 	
 	public void calculaArea() {
-		this.area = this.longitud * this.longitud;
+		area = longitud * longitud;
 	}
 	
 	public void calculaPerimetro() {
-		this.perimetro = 4*this.longitud;
+		perimetro = 4*longitud;
 	}
 	
 	public void calculaDiagonal() {
-		this.diagonal = this.longitud*Math.sqrt(2);
+		diagonal = longitud*Math.sqrt(2);
 	}
 }
 
@@ -39,18 +39,17 @@ public class Circulo {
 	public double circunferencia;
 	
 	public Circulo() {
-		this.radio = 173428;
-		this.calculaArea();
-		this.calculaCircunferencia();		
+		radio = 173428;
+		calculaArea();
+		calculaCircunferencia();		
 	}
 
 	public void calculaArea() {
-		this.area = Math.PI*this.radio*this.radio;
+		area = Math.PI*radio*radio;
 	}
 	
 	public void calculaCircunferencia() {
-		this.circunferencia = 2*Math.PI*this.radio;
-	}
+		circunferencia = 2*Math.PI*radio;
 	}
 }
 
