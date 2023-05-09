@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -24,8 +25,9 @@ public class Window extends JFrame implements ActionListener, MouseListener, Cha
 	static JPanel panel;
 	static JButton querry1, querry2, querry3, connect, disconnect, menu, saveQ1, saveQ2, saveQ3;
 	static SolidRectangle rect1, rect2;
-	static JLabel headline, description, label1, label2;
-	static JTextField text1, text2, text3, text4, text5, text6, text7, text8, text9;
+	static JLabel headline, description;
+	static JLabel label1, label2, label3, label4, label5, label6, label7, label8, label9, label10;
+	static JTextField text1, text2, text3, text4, text5, text6, text7, text8, text9, text10;
 	static Notification notification;
 	static JComboBox<String> box1, box2, box3, box2A, box2B, box3A;
 	static boolean online = false;
@@ -67,13 +69,13 @@ public class Window extends JFrame implements ActionListener, MouseListener, Cha
 		disconnect = Components.addPanelButton(0, 150, 300, 50, "Disconnect from DB");
 		disconnect.addMouseListener(new Disconnect());
 		
-		querry1 = Components.addPanelButton((int)(0), (int)(height*.35),300,50, "Querry 1");
+		querry1 = Components.addPanelButton((int)(0), (int)(height*.35),300,50, "Room Search");
 		querry1.addMouseListener(new Querry1());
 		
-		querry2 = Components.addPanelButton((int)(0), (int)(height*.45),300,50, "Querry 2");
+		querry2 = Components.addPanelButton((int)(0), (int)(height*.45),300,50, "Reservation");
 		querry2.addMouseListener(new Querry2());
 		
-		querry3 = Components.addPanelButton(0, (int)(height*.55),300,50,"Querry 3");
+		querry3 = Components.addPanelButton(0, (int)(height*.55),300,50,"Schedule");
 		querry3.addMouseListener(new Querry3());
 		
 		menu = Components.addPanelButton(0, 600, 300, 50, "Main Menu");
@@ -82,15 +84,12 @@ public class Window extends JFrame implements ActionListener, MouseListener, Cha
 		// Save buttons
 		saveQ1 = Components.addContentButton((int)(width*0.8), (int)(height*0.8), 200, 30, "Execute");
 		saveQ1.addMouseListener(new SaveQ1());
-		saveQ1.setVisible(false);
 		
 		saveQ2 = Components.addContentButton((int)(width*0.8), (int)(height*0.8), 200, 30, "Execute");
 		saveQ2.addMouseListener(new SaveQ2());
-		saveQ2.setVisible(false);
 		
 		saveQ3 = Components.addContentButton((int)(width*0.8), (int)(height*0.8), 200, 30, "Execute");
 		saveQ3.addMouseListener(new SaveQ3());
-		saveQ3.setVisible(false);
 		
 		// Window Design
 		rect1 = Components.addRectangle(0,0,300,800, Color.black);
@@ -104,80 +103,84 @@ public class Window extends JFrame implements ActionListener, MouseListener, Cha
 		setMenuDefault();
 		
 		// Labels
-		label1 = Components.addText(0,0,1000,30,"");
-		label1.setVisible(false);
+		label1 = Components.addText(0,0,180,30,"");		
+		label2 = Components.addText(0,0,180,30,"");
+		label3 = Components.addText(0,0,180,30,"");
+		label4 = Components.addText(0,0,180,30,"");
+		label5 = Components.addText(0,0,180,30,"");
+		label6 = Components.addText(0,0,180,30,"");
+		label7 = Components.addText(0,0,180,30,"");
+		label8 = Components.addText(0,0,180,30,"");
+		label9 = Components.addText(0,0,180,30,"");
+		label10 = Components.addText(0,0,180,30,"");
 		
-		label2 = Components.addText(0,0,1000,30,"");
-		label2.setVisible(false);
 		
 		// Box elements
 		box1 = Components.addBox(400,400,200,30,options1);
 		box1.addItemListener(new BoxQ1());
-		box1.setVisible(false);
 		
 		box2 = Components.addBox(400,400,200,30,options2);
 		box2.addItemListener(new BoxQ2());
-		box2.setVisible(false);
 			
 		box2A = Components.addBox(620,400,180,30,options2A);
 		box2A.addItemListener(new BoxQ2A());
-		box2A.setVisible(false);
 		
 		box2B = Components.addBox(620,400,180,30,options2B);
 		box2B.addItemListener(new BoxQ2B());
-		box2B.setVisible(false);
 	
 		box3 = Components.addBox(400,400,300,30,options3);
 		box3.addItemListener(new BoxQ3());
-		box3.setVisible(false);
 		
 		box3A = Components.addBox(710,400,180,30,options3A);
 		box3A.addItemListener(new BoxQ3A());
-		box3A.setVisible(false);
 		
 		// Textfields
 		text1 = Components.addTextField(0,0,0,0);
 		text1.addActionListener(this);
-		text1.setVisible(false);
 		
 		text2 = Components.addTextField(0,0,0,0);
 		text2.addActionListener(this);
-		text2.setVisible(false);
 		
 		text3 = Components.addTextField(0,0,0,0);
 		text3.addActionListener(this);
-		text3.setVisible(false);
 		
 		text4 = Components.addTextField(0,0,0,0);
 		text4.addActionListener(this);
-		text4.setVisible(false);
 
 		text5 = Components.addTextField(0,0,0,0);
 		text5.addActionListener(this);
-		text5.setVisible(false);
 		
 		text6 = Components.addTextField(0,0,0,0);
 		text6.addActionListener(this);
-		text6.setVisible(false);
 
 		text7 = Components.addTextField(0,0,0,0);
 		text7.addActionListener(this);
-		text7.setVisible(false);
 		
 		text8 = Components.addTextField(0,0,0,0);
 		text8.addActionListener(this);
-		text8.setVisible(false);
 		
 		text9 = Components.addTextField(0,0,0,0);
 		text9.addActionListener(this);
-		text9.setVisible(false);
+		
+		text10 = Components.addTextField(0,0,0,0);
+		text10.addActionListener(this);
 		
 		// Implementation in main panel
 		panel.add(label1);
 		panel.add(label2);
+		panel.add(label3);
+		panel.add(label4);
+		panel.add(label5);
+		panel.add(label6);
+		panel.add(label7);
+		panel.add(label8);
+		panel.add(label9);
+		panel.add(label10);
+
 		panel.add(saveQ1);
 		panel.add(saveQ2);
 		panel.add(saveQ3);
+		
 		panel.add(text1);
 		panel.add(text2);
 		panel.add(text3);
@@ -187,39 +190,41 @@ public class Window extends JFrame implements ActionListener, MouseListener, Cha
 		panel.add(text7);
 		panel.add(text8);
 		panel.add(text9);
+		panel.add(text10);
+		
 		panel.add(box1);
 		panel.add(box2);
 		panel.add(box2A);
 		panel.add(box2B);
 		panel.add(box3);
 		panel.add(box3A);
+		
 		panel.add(notification);
-		panel.add(disconnect);
-		panel.add(menu);
+		
 		panel.add(connect);
-		panel.add(description);
-		panel.add(headline);
+		panel.add(disconnect);
 		panel.add(querry1);
 		panel.add(querry2);
 		panel.add(querry3);
-		panel.add(rect2);
+		panel.add(menu);
+
 		panel.add(rect1);
+		panel.add(rect2);
+
+		panel.add(headline);
+		panel.add(description);
 		
 		add(panel);
 		
+		hideContent();	
 	}
 	
 	public static void setMenuDefault() {
 		headline.setText("Data Manager");
 		description.setText("Add a description for the data base interactive window.");
 	}
-	
-	public static void hideContent() {
-		label1.setVisible(false);
-		label2.setVisible(false);
-		saveQ1.setVisible(false);
-		saveQ2.setVisible(false);
-		saveQ3.setVisible(false);
+
+	public static void hideTextFields() {
 		text1.setVisible(false);
 		text2.setVisible(false);
 		text3.setVisible(false);
@@ -228,13 +233,50 @@ public class Window extends JFrame implements ActionListener, MouseListener, Cha
 		text6.setVisible(false);
 		text7.setVisible(false);
 		text8.setVisible(false);
+		text9.setVisible(false);
+		text10.setVisible(false);
+	}
+	
+	public static void hideLabels() {
+		label1.setVisible(false);
+		label2.setVisible(false);
+		label3.setVisible(false);
+		label4.setVisible(false);
+		label5.setVisible(false);
+		label6.setVisible(false);
+		label7.setVisible(false);
+		label8.setVisible(false);
+		label9.setVisible(false);
+		label10.setVisible(false);
+	}
+	
+	public static void hideContent() {
+		hideLabels();
+		hideTextFields();
+		
+		saveQ1.setVisible(false);
+		saveQ2.setVisible(false);
+		saveQ3.setVisible(false);
+
 		box1.setVisible(false);
 		box2.setVisible(false);
 		box2A.setVisible(false);
 		box2B.setVisible(false);
 		box3.setVisible(false);
-		description.setVisible(false);
-		headline.setVisible(false);
+		box3A.setVisible(false);
+	}
+	
+	public static void clearTextFields() {
+		text1.setText(null);
+		text2.setText(null);
+		text3.setText(null);
+		text4.setText(null);
+		text5.setText(null);
+		text6.setText(null);
+		text7.setText(null);
+		text8.setText(null);
+		text9.setText(null);
+		text10.setText(null);
 	}
 	
 	@Override

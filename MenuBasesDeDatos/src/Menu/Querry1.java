@@ -10,21 +10,20 @@ public class Querry1 implements MouseListener{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
+				
+		Window.clearTextFields();
 		Window.hideContent();
 		
-		Window.headline.setText("Querry 1");
-		Window.description.setText("Instructions for Querry 1...");
-		Window.label1.setText("Select an option");
+		Window.headline.setText("Room Search Menu");
+		Window.description.setText("<html>In this section, you can access to the data related to ROOMS. <br/> "
+									+ "Select an option from the box above to permform an action.</html>");
 		
-		Window.label1.setBounds(400, 350, 800, 30);
-		Window.text1.setBounds(620, 400, 200, 30);
+		Window.label1.setBounds(400, 360, 180, 30);
+		Window.text1.setBounds(400, 400, 180, 30);
 		
-		Window.headline.setVisible(true);
-		Window.description.setVisible(true);
+		Window.box1.setBounds(400, 300, 300, 30);
+		
 		Window.box1.setVisible(true);
-		Window.saveQ1.setVisible(true);
-		
 	}
 
 	@Override

@@ -17,31 +17,33 @@ public class SaveQ2 implements MouseListener{
 				sql = "SELECT * FROM RESERVATION";				
 			}
 			case 2 -> {
-				sql = "SELECT * FROM ROOMS WHERE ROOM_ID NOT IN (SELECT ROOM_ID FROM RESERVATION WHERE RES_DATE = '" + Window.text1.getText() + ":00')";
+				String date = Window.text1.getText() + ":00";
+				sql = "SELECT * FROM ROOMS WHERE ROOM_ID NOT IN (SELECT ROOM_ID FROM RESERVATION WHERE RES_DATE = '" + date + "')";
 			}
-			case 3 -> {
-				String res_name = Window.text2.getText();
-				String room_id = Window.text3.getText();
-				int duration = Integer.parseInt(Window.text4.getText());
-				String date = Window.text5.getText() + ":00";
+			case 3 -> { // case "o"
+				String res_name = Window.text1.getText();
+				String room_id = Window.text2.getText();
+				int duration = Integer.parseInt(Window.text3.getText());
+				String date = Window.text4.getText() + ":00";
 				
 				// handleOneTimeReservation(connection, room_id, res_name, duration, date);
 			}
-			case 4 -> {
-				String res_name = Window.text2.getText();
-				String room_id = Window.text3.getText();
-				int duration = Integer.parseInt(Window.text4.getText());
-				String period = Window.text5.getText();
-				int weekday = Integer.parseInt(Window.text6.getText());
-				int hour = Integer.parseInt(Window.text7.getText());
-				int minute = Integer.parseInt(Window.text8.getText());
+			case 4 -> { // case "r"
+				String res_name = Window.text1.getText();
+				String room_id = Window.text2.getText();
+				int duration = Integer.parseInt(Window.text3.getText());
+				
+				String period = Window.text4.getText();
+				int weekday = Integer.parseInt(Window.text5.getText());
+				int hour = Integer.parseInt(Window.text6.getText());
+				int minute = Integer.parseInt(Window.text7.getText());
 				
 				// handleRecurrentReservation(connection, room_id, res_name, duration, period, weekday, hour, minute, false);
 			}
-			case 5 -> {
+			case 5 -> { // case "p"
 				// Room_id, name, date
-				String room_id_cancelation = Window.text2.getText();
-				String res_name_cancelation = Window.text3.getText();
+				String room_id_cancelation = Window.text1.getText();
+				String res_name_cancelation = Window.text2.getText();
 				String date = Window.text3.getText() + ":00";
 				
 				sql = "DELETE FROM RESERVATION WHERE RES_DATE = ? AND RES_NAME = ? AND ROOM_ID = ?";
@@ -60,10 +62,10 @@ public class SaveQ2 implements MouseListener{
                 */
 
 			}
-			case 6 -> {
+			case 6 -> { // case "a"
 				// Room_id, name, date
-				String room_id_cancelation = Window.text2.getText();
-				String res_name_cancelation = Window.text3.getText();
+				String room_id_cancelation = Window.text1.getText();
+				String res_name_cancelation = Window.text2.getText();
 				String date1 = Window.text3.getText() + ":00";
 				String date2 = Window.text4.getText() + ":00";
 				
